@@ -1,67 +1,42 @@
-
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "freertos/event_groups.h"
+#include "freertos/projdefs.h"
+
+#include "esp_system.h"
 #include "esp_event.h"
+#include "esp_event_base.h"
+#include "esp_wifi.h"
+#include "esp_wifi_types.h"
+#include "esp_netif.h"
+#include "esp_netif_types.h"
+#include "esp_mac.h"
+
+#include "nvs.h"
 #include "nvs_flash.h"
+
+#include "lwip/err.h"
+#include "lwip/sys.h"
+
 #include "esp_log.h"
+#include "esp_err.h"
+
+#include "esp_http_server.h"
+#include "http_parser.h"
+
 #include "esp_nimble_hci.h"
 #include "nimble/nimble_port.h"
 #include "nimble/nimble_port_freertos.h"
 #include "host/ble_hs.h"
 #include "services/gap/ble_svc_gap.h"
 #include "services/gatt/ble_svc_gatt.h"
-#include "sdkconfig.h"
-#include <string.h>
-#include "esp_err.h"
-#include "esp_event_base.h"
-#include "esp_netif_types.h"
-#include "esp_wifi_types.h"
 
-#include "freertos/projdefs.h"
-
-#include "esp_mac.h"
-#include "esp_wifi.h"
-
-#include "http_parser.h"
-
-#include "esp_system.h"
-#include "lwip/err.h"
-#include "lwip/sys.h"
-
-
-#include "esp_mac.h"
-#include <stdlib.h>
-#include "esp_netif.h"
-#include "nvs.h"
-#include "portmacro.h"
-#include <string.h>
-#include "esp_err.h"
-#include "esp_event_base.h"
-#include "esp_netif_types.h"
-#include "esp_wifi_types.h"
-#include "freertos/FreeRTOS.h"
-#include "freertos/projdefs.h"
-#include "freertos/task.h"
-#include "esp_mac.h"
-#include "esp_wifi.h"
-#include "esp_event.h"
-#include "esp_log.h"
-#include "http_parser.h"
-#include "nvs_flash.h"
-#include "esp_system.h"
-#include "lwip/err.h"
-#include "lwip/sys.h"
-
-#include "freertos/event_groups.h"
-#include "esp_mac.h"
-#include <stdlib.h>
-#include <esp_http_server.h>
-#include "esp_netif.h"
-#include "nvs.h"
-#include "portmacro.h"
 #define TAG_t "MAIN"
+
 
 /* The examples use WiFi configuration that you can set via project configuration menu
 
