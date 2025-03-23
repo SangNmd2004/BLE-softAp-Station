@@ -433,7 +433,7 @@ void app_main(){
 	ret = nvs_open("storage", NVS_READONLY, &nvs_handle);
 	 
     if (ret == ESP_ERR_NVS_NOT_FOUND) {
-    ESP_LOGI(TAG, "No WiFi credentials found in NVS");
+  /*  ESP_LOGI(TAG, "No WiFi credentials found in NVS");
     nvs_flash_init(); 
     nimble_port_init();                        // 3 - Initialize the host stack
     ble_svc_gap_device_name_set("BLE-Server"); // 4 - Initialize NimBLE configuration - server name
@@ -442,7 +442,7 @@ void app_main(){
     ble_gatts_count_cfg(gatt_svcs);            // 4 - Initialize NimBLE configuration - config gatt services
     ble_gatts_add_svcs(gatt_svcs);             // 4 - Initialize NimBLE configuration - queues gatt services.
     ble_hs_cfg.sync_cb = ble_app_on_sync;      // 5 - Initialize application
-    nimble_port_freertos_init(host_task);   
+    nimble_port_freertos_init(host_task);   */
     wifi_init_ap();
     start_webserver();
     } else {
